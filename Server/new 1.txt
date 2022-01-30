@@ -1,0 +1,17 @@
+ffmpeg -f dshow -i video="USB2.0 PC CAMERA" -f dshow -i audio="Microphone (USB2.0 MIC)" -vcodec libx264 -acodec aac -strict -2 mycamera.mkv
+
+
+
+ffmpeg -f gdigrab -framerate 30 -offset_x 10 -offset_y 20 -video_size 640x480 -show_region 1 -i desktop output.mkv
+
+
+ffmpeg -y -f gdigrab -framerate 30 -i desktop -pix_fmt yuv420p -c:v libx264 -f mp4 output.mp4
+
+
+ffmpeg -y -f gdigrab -framerate 30 -offset_x 10 -offset_y 20 -video_size 1910x748 -pix_fmt yuv420p  -c:v libx264 -f mp4 -show_region 1 ousstput.mp4
+
+
+ffmpeg -y -f gdigrab -framerate 30 -show_region 1 -i desktop -pix_fmt yuv420p -c:v libx264 -f mp4 output.mp4
+
+
+ffmpeg -f gdigrab -framerate 30 -offset_x 10 -offset_y 20 -video_size 640x480 -show_region 1 -i desktop -pix_fmt yuv420p output.mkv
